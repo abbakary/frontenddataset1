@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Box,
   Grid,
@@ -15,6 +16,7 @@ import {
   CircularProgress,
   Container,
 } from "@mui/material";
+import DashboardLayout from "../../components/layout/DashboardLayout";
 import {
   LineChart,
   Line,
@@ -78,21 +80,24 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
-          <CircularProgress />
-        </Box>
-      </Container>
+      <DashboardLayout>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
+            <CircularProgress />
+          </Box>
+        </Container>
+      </DashboardLayout>
     );
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <DashboardHeader
-        title="Admin Dashboard"
-        subtitle="System overview and platform analytics"
-        onRefresh={handleRefresh}
-      />
+    <DashboardLayout>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <DashboardHeader
+          title="Admin Dashboard"
+          subtitle="System overview and platform analytics"
+          onRefresh={handleRefresh}
+        />
 
       {/* KPI Cards */}
       <Grid container spacing={2.5} sx={{ marginBottom: 4 }}>
@@ -438,12 +443,13 @@ export default function AdminDashboard() {
         </ChartCard>
       </Grid>
 
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-      `}</style>
-    </Container>
+        <style>{`
+          @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+          }
+        `}</style>
+      </Container>
+    </DashboardLayout>
   );
 }

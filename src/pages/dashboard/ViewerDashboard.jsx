@@ -39,6 +39,7 @@ import {
   Star,
   Bookmark,
 } from "lucide-react";
+import DashboardLayout from "../../components/layout/DashboardLayout";
 import DashboardHeader from "../../components/dashboard/DashboardHeader";
 import StatCard from "../../components/dashboard/StatCard";
 import ChartCard from "../../components/dashboard/ChartCard";
@@ -70,11 +71,13 @@ export default function ViewerDashboard() {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
-          <CircularProgress />
-        </Box>
-      </Container>
+      <DashboardLayout>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
+            <CircularProgress />
+          </Box>
+        </Container>
+      </DashboardLayout>
     );
   }
 
@@ -84,14 +87,15 @@ export default function ViewerDashboard() {
   const readTimeText = `${hours}h ${minutes}m`;
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <DashboardHeader
-        title="Viewer Dashboard"
-        subtitle="Your reading activity and content preferences"
-        onRefresh={handleRefresh}
-      />
+    <DashboardLayout>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <DashboardHeader
+          title="Viewer Dashboard"
+          subtitle="Your reading activity and content preferences"
+          onRefresh={handleRefresh}
+        />
 
-      {/* KPI Cards */}
+        {/* KPI Cards */}
       <Grid container spacing={2.5} sx={{ marginBottom: 4 }}>
         <Grid item xs={12} sm={6} md={3}>
           <StatCard
@@ -414,12 +418,13 @@ export default function ViewerDashboard() {
         </Grid>
       </Grid>
 
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-      `}</style>
-    </Container>
+        <style>{`
+          @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+          }
+        `}</style>
+      </Container>
+    </DashboardLayout>
   );
 }

@@ -15,6 +15,7 @@ import {
   CircularProgress,
   Container,
 } from "@mui/material";
+import DashboardLayout from "../../components/layout/DashboardLayout";
 import {
   AreaChart,
   Area,
@@ -68,21 +69,24 @@ export default function EditorDashboard() {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
-          <CircularProgress />
-        </Box>
-      </Container>
+      <DashboardLayout>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
+            <CircularProgress />
+          </Box>
+        </Container>
+      </DashboardLayout>
     );
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <DashboardHeader
-        title="Editor Dashboard"
-        subtitle="Your content performance and engagement analytics"
-        onRefresh={handleRefresh}
-      />
+    <DashboardLayout>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <DashboardHeader
+          title="Editor Dashboard"
+          subtitle="Your content performance and engagement analytics"
+          onRefresh={handleRefresh}
+        />
 
       {/* KPI Cards */}
       <Grid container spacing={2.5} sx={{ marginBottom: 4 }}>
@@ -383,12 +387,13 @@ export default function EditorDashboard() {
         </Grid>
       </Grid>
 
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-      `}</style>
-    </Container>
+        <style>{`
+          @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+          }
+        `}</style>
+      </Container>
+    </DashboardLayout>
   );
 }
