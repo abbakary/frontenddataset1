@@ -38,14 +38,14 @@ const USER_KEY = "dali-user";
 
 const ROLE_NAV_ITEMS = {
   buyer: [
-    { label: "Browse Datasets", path: "/public/datasets", icon: Eye, section: "browse" },
+    { label: "Browse Datasets", path: "/dashboard/buyer", icon: Eye, section: "browse" },
     { label: "My Purchases", path: "/dashboard/buyer", icon: ShoppingCart, section: "purchases" },
     { label: "Download History", path: "/dashboard/buyer", icon: FolderOpen, section: "downloads" },
     { label: "Purchase Stats", path: "/dashboard/buyer", icon: LineChart, section: "stats" },
   ],
   seller: [
     { label: "My Datasets", path: "/dashboard/seller", icon: Upload, section: "datasets" },
-    { label: "Upload Dataset", path: "/sell", icon: FolderOpen, section: "upload" },
+    { label: "Upload Dataset", path: "/dashboard/seller", icon: FolderOpen, section: "upload" },
     { label: "Sales Analytics", path: "/dashboard/seller", icon: BarChart3, section: "sales" },
     { label: "Earnings", path: "/dashboard/seller", icon: Wallet, section: "earnings" },
   ],
@@ -56,23 +56,27 @@ const ROLE_NAV_ITEMS = {
     { label: "Notifications", path: "/dashboard/editor", icon: Bell, section: "alerts" },
   ],
   admin: [
-    { label: "Dashboard", path: "/dashboard/admin", icon: BarChart3, section: "dashboard" },
+    { label: "Browse Datasets", path: "/dashboard/admin", icon: Eye, section: "browse" },
+    { label: "Saved Collections", path: "/dashboard/admin", icon: Bookmark, section: "saved" },
+    { label: "Viewing History", path: "/dashboard/admin", icon: History, section: "history" },
     { label: "User Management", path: "/dashboard/admin", icon: Users, section: "users" },
     { label: "Content Moderation", path: "/dashboard/admin", icon: ShieldAlert, section: "moderation" },
     { label: "Platform Reports", path: "/dashboard/admin", icon: BarChart3, section: "reports" },
     { label: "System Settings", path: "/dashboard/admin", icon: Settings, section: "settings" },
   ],
   super_admin: [
-    { label: "Dashboard", path: "/dashboard/admin", icon: BarChart3, section: "dashboard" },
+    { label: "Browse Datasets", path: "/dashboard/admin", icon: Eye, section: "browse" },
+    { label: "Saved Collections", path: "/dashboard/admin", icon: Bookmark, section: "saved" },
+    { label: "Viewing History", path: "/dashboard/admin", icon: History, section: "history" },
     { label: "User Management", path: "/dashboard/admin", icon: Users, section: "users" },
     { label: "Content Moderation", path: "/dashboard/admin", icon: ShieldAlert, section: "moderation" },
     { label: "Platform Reports", path: "/dashboard/admin", icon: BarChart3, section: "reports" },
     { label: "System Settings", path: "/dashboard/admin", icon: Settings, section: "settings" },
   ],
   viewer: [
-    { label: "Browse Datasets", path: "/public/datasets", icon: Eye, section: "browse" },
-    { label: "Saved Collections", path: "/dashboard/viewer", icon: Bookmark, section: "saved" },
-    { label: "Viewing History", path: "/dashboard/viewer", icon: History, section: "history" },
+    { label: "Browse Datasets", path: "/dashboard/viewer", icon: Eye, section: "browse" },
+    { label: "Saved Collections", path: "/dashboard/viewer", icon: FolderOpen, section: "saved" },
+    { label: "Viewing History", path: "/dashboard/viewer", icon: ClipboardList, section: "history" },
     { label: "Platform Insights", path: "/dashboard/viewer", icon: LineChart, section: "insights" },
   ],
 };
